@@ -18,12 +18,16 @@
       width: 100%;
       border: none;
     }
+    h1>img {
+      width: 50px;
+      margin-right: 10px;
+    }
   </style>
 </head>
 <body>
   <div class="content pure-g">
      <header class="pure-u-1">
-      <h1>BioDivDev</h1>
+      <h1><img src='logo.png' />BioDivDev & RRAPP</h1>
       <h2>The Rapid Risk Assessment App and supporting toolset.</h2>
       <p>Here is provided tools for working with biodiversity data, specially for supporting the Rapid Risk Assessment App and related tools.</p>
       <p>Most of these tools are designed to work with ElasticSearch, DarwinCore Archives from IPTs and JSON data in general, also mostly writen in Clojure and running on the JVM and Docker.</p>
@@ -33,16 +37,27 @@
       <iframe src="https://trello.com/b/5El2zEJK.html" class='pure-u-1'></iframe>
     </section>
     <section class='pure-u-1'>
-      <h3>RRAPP</h3>
+      <h3><a href='https://br.biodiversity.cloud'>RRAPP - Rapid Risk Assessment App</a></h3>
+      <h4>Spatial distribution and analysis of aggregated taxonomic and occurrence data.</h4>
+      <p>The <a href='https://br.biodiversity.cloud/about'>Rapid Risk Assessment App</a> is a set of open-source tools to daily collect and serve consolidated taxonomic and occurrence data from various open data sources , perform geospatial analysis that enable rapid risk assessment of country-level biodiversity , and allow simple and directed visualization of the data and results.</p>
+      <p>Composed of
+        <a href='https://github.com/biodivdev/dwc-bot-es'>a darwin core archive bot</a>
+        , an <a href='https://github.com/biodivdev/rrapp-idx'> indexer/analyser</a> 
+        and a<a href='https://github.com/iodivdev/rrapp-ui'> user interface</a>. 
+        All run with <a href='https://github.com/biodivdev/rrapp-compose'>docker-compose</a>.
+      </p>
     </section>
     <section class='pure-u-1'>
       <h3>Web Services</h3>
+      <p>TO-DO</p>
     </section>
     <section class='pure-u-1'>
       <h3>Bots</h3>
+      <p>TO-DO</p>
     </section>
     <section class='pure-u-1'>
       <h3>Libs</h3>
+      <p>TO-DO</p>
     </section>
   </div>
 </body>
