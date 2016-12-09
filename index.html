@@ -22,6 +22,16 @@
       width: 50px;
       margin-right: 10px;
     }
+    article {
+      float: left;
+    }
+    footer {
+      margin-top: 20px;
+      padding-top: 30px;
+      padding-bottom: 20px;
+      background-color: #333;
+      color: #eee;
+    }
   </style>
 </head>
 <body>
@@ -29,7 +39,7 @@
      <header class="pure-u-1">
       <h1><img src='logo.png' />BioDivDev & RRAPP</h1>
       <h2>The Rapid Risk Assessment App and supporting toolset.</h2>
-      <p>Here is provided tools for working with biodiversity data, specially for supporting the Rapid Risk Assessment App and related tools.</p>
+      <p>Here is provided opensource tools for working with biodiversity data, specially for supporting the Rapid Risk Assessment App and related tools.</p>
       <p>Most of these tools are designed to work with ElasticSearch, DarwinCore Archives from IPTs and JSON data in general, also mostly writen in Clojure and running on the JVM and Docker.</p>
       <p>Work started and supported by 
         <a href="http://jbrj.gov.br">Rio de Janeiro Botanical Garden</a>  (JBRJ)
@@ -47,15 +57,31 @@
       <p>Composed of
         <a href='https://github.com/biodivdev/dwc-bot-es'>a darwin core archive bot</a>
         , an <a href='https://github.com/biodivdev/rrapp-idx'> indexer/analyser</a> 
-        and a<a href='https://github.com/iodivdev/rrapp-ui'> user interface</a>. 
+        and a<a href='https://github.com/biodivdev/rrapp-ui'> user interface</a>. 
         All run with <a href='https://github.com/biodivdev/rrapp-compose'>docker-compose</a>.
       </p>
-      <p>You can also read the <a href="http://www.lbd.dcc.ufmg.br/colecoes/wcama/2016/003.pdf">paper published at CSBC 2016 (WCAMA)</a></p>
+      <p>You can also read the <a href="http://www.lbd.dcc.ufmg.br/colecoes/wcama/2016/003.pdf">paper published at CSBC 2016 (WCAMA)</a>, or the blog article by <a href='http://eduardo.dalc.in/avaliao-rpida-de-risco-de-extino/'>Eduardo Dalcin</a>(in portuguese).</p>
     </section>
     <section class='pure-u-1'>
-      <h3>Tools</h3>
-      <p>TO DO</p>
+      <h3>Other tools</h3>
+      <article class="pure-u-1-2">
+        <h4><a href='https://github.com/biodivdev/dwc-bot-es'>DarwinCore Bot</a></h4>
+        <p>A Bot that crawls resources from IPTs and index them at ElasticSearch.</p>
+      </article>
+      <article class="pure-u-1-2">
+        <h4><a href='https://github.com/biodivdev/dwc-services'>DarwinCore Services</a></h4>
+        <p>WebServices API to convert, validate and analyse DarwinCore datasets.</p>
+      </article>
+      <article class="pure-u-1-2">
+        <h4>
+          <a href='https://github.com/biodivdev/dwc-io'>DarwinCore IO</a> and 
+          <a href='https://github.com/biodivdev/dwc-analysis'>DarwinCore Analysis</a> and 
+        </h4>
+        <p>Clojure library to read, validate and convert between format of DarwinCore, and another library to run analysis on them.</p>
+      </article>
     </section>
+    <footer class='pure-u-1'>
+    </footer>
   </div>
 </body>
 </html>
