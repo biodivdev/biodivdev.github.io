@@ -1,0 +1,144 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>New configuration - Biodiversity Development and Rapid Risk Assessment Application</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1,minimum-scale=1">
+  <link rel="amphtml" href="http://localhost:8585/post/new-configuration-amp.html" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="New configuration" />
+  <meta property="og:description" content="Learn how to configure and run RRAPP on your infrastructure and data" />
+  <meta property="og:url" content="http://localhost:8585/post/new-configuration.html" />
+  <meta property="og:site_name" content="Biodiversity Development and Rapid Risk Assessment Application" />
+  <!--
+  <meta property="og:image" content="https://s0.wp.com/i/blank.jpg" />
+  -->
+
+  <script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "NewsArticle",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "http://localhost:8585/post/new-configuration.html"
+    },
+    "headline": "New configuration",
+    "datePublished": "2016-12-30",
+    "dateModified": "2016-12-30",
+    "author": {
+      "@type": "Person",
+      "name": "<no value>",
+    },
+    "description": "Learn how to configure and run RRAPP on your infrastructure and data"
+  }
+  </script>
+
+  <meta name="generator" content="BlogMe" />
+</head>
+<body>
+  <header>
+    <h2><a href="http://localhost:8585">Biodiversity Development and Rapid Risk Assessment Application</a></h1>
+    <h3>Updates on Biodivdev and RRAPP.</h2>
+  </header>
+  <article>
+    <h1>New configuration</h1>
+    <p>One main improvement of latest update is the review of the whole configuration of the RRAPP.</p>
+
+<p>Since there has been some interest on running it by different parties (this is the intention after all), it was clear that the current way to run it was overly complicated.</p>
+
+<p>This post describe a initial approach to simplify this work.</p>
+
+<h2>Published data</h2>
+
+<p>The main requirement to be able to run RRAPP is actually a data availability issue. You MUST have:</p>
+
+<ul>
+<li>A taxonomic checklist published on IPT</li>
+<li>Occurrences with coordinates published on IPT</li>
+</ul>
+
+<h2>Composition of apps</h2>
+
+<p>One thing that is important to consider is that RRAPP is not a single tool, but actually a composition of three parts:</p>
+
+<ul>
+<li>The data bot</li>
+<li>The data analyzer</li>
+<li>The web interface</li>
+</ul>
+
+<p>All along with a ElasticSearch database and a Proxy to better serve the content.</p>
+
+<p>As such there is two approaches: Run all as whole (using docker-compose) or running individual parts.</p>
+
+<h3>The ElasticSearch database</h3>
+
+<p>RRAPP uses the latest ElasticSearch 5.0 release. This is the single storage/database used.</p>
+
+<p>A common problem when running newest ES is &quot;max virtual memory areas vm.max_map_count [65530] likely too low&quot;, that is solved by running &quot;sudo sysctl -w vm.max_map_count=262145&quot;. But this change is transient, and will be overriden at reboot. To make it permanent, as root: &quot;echo vm.max_map_count=262145 &gt; /etc/sysctl.d/50-es.conf&quot;.</p>
+
+<h3>The Proxy</h3>
+
+<p>Not mandatory if you are running each app on it's own, but useful anyway, is the proxy. Here the choice is Caddyserver, a new proxy server capable of automaticaly serving HTTPS sites and easy to configure.</p>
+
+<p>In the compose repository, it is configured at config/Caddyfile, which tells to which address the proxy will bind and serve, defaulting to http://localhost:8080.</p>
+
+<p>It can be configured to simply bind to a port (eg.: &quot;:8080&quot;) or to a domain (e.g &quot;https://br.biodiversity.cloud&quot;), if you wish to enable HTTPS you must also provide the directive &quot;tls email@domain.com&quot; in any other line.</p>
+
+<h3>Configuration files</h3>
+
+<h4>dwc-bot.list</h4>
+
+<p>This file consist of a list of IPT URLs for the bot to crawl and index, it is simply a list with a single url in each line that points to a IPT intallation.</p>
+
+<h4>config.ini</h4>
+
+<p>The three main app use this file to run, and the bot and the analyzer(idx) will reload it on rerun.</p>
+
+<p>It configures:</p>
+
+<ul>
+<li>ELASTICSEARCH: the address of the elasticsearch server</li>
+<li>INDEX: The index (database) to use on elasticsearch. Will be created if needed.</li>
+<li>SOURCE: The name of the crawled resource from which to load the taxonomic checklist</li>
+<li>LOOP: Used by the bot and idx to run only once or keep running.</li>
+</ul>
+
+<p>When running the apps individually, all theses parameters can also be overriden by environment variables of java properties on execution, and so is the location of the file on env var CONFIG.</p>
+
+<h2>Conclusion</h2>
+
+<p>This is a work in progress, but as always if you have problems or suggestions you can interact in Github with the issues pages of each project or direct with email with diogo@diogok.net.</p>
+
+  </article>
+  <footer>
+  </footer>
+  <style type="text/css">
+    body {
+      margin: 0 auto;
+      max-width: 1024px;
+    }
+
+    html {
+      font-family: sans-serif; 
+      line-height: 1.15; 
+    }
+
+    article, aside, footer, header, nav, section {
+      display: block;
+    }
+
+    h1 {
+      font-size: 2em;
+      margin: 0.67em 0;
+    }
+
+    pre, code {
+      font-family: monospace, monospace;
+      font-size: 1em; 
+    }
+
+  </style>
+</body>
+</html>
