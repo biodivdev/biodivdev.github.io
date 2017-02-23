@@ -2,12 +2,12 @@
 <rss version="2.0">
   <channel>
     <title>Biodiversity Development and Rapid Risk Assessment Application</title>
-    <link>http://localhost:8585</link>
+    <link>https://www.biodiversity.cloud/blog</link>
     <description>Updates on Biodivdev and RRAPP.</description>
     
     <item>
       <title><![CDATA[Running at Rio de Janeiro Botanical Garden's infrastructure]]></title>
-      <link>http://localhost:8585/post/jbrj-infrastructure.html</link>
+      <link>https://www.biodiversity.cloud/blog/post/jbrj-infrastructure.html</link>
       <guid>jbrj-infrastructure</guid>
       <pubDate>2017-03-01</pubDate>
       <description><![CDATA[<p>Even if <a href="https://br.biodiversity.cloud">RRAPP</a> was initially developed inside Brazil's <a href="http://cncflora.jbrj.gov.br">National Centre for Flora Conservation</a>, of <a href="http://jbrj.gov.br">Rio de Janeiro Botanical Garden</a>, it was runing at my personal (Diogo) servers at <a href="https://scaleway.com">Scaleway</a>.</p>
@@ -18,7 +18,7 @@
     
     <item>
       <title><![CDATA[Featured at Elastic.co]]></title>
-      <link>http://localhost:8585/post/elastic.html</link>
+      <link>https://www.biodiversity.cloud/blog/post/elastic.html</link>
       <guid>elastic</guid>
       <pubDate>2017-02-24</pubDate>
       <description><![CDATA[<p>The <a href="https://br.biodiversity.cloud">Rapid Automated Risk Assessment</a> tool was shortlisted for this year’s inaugural <a href="https://www.elastic.co/causeawards">Elastic Cause Awards</a>, which recognizes organizations using the Elastic Stack to do great good in the world.</p>
@@ -31,7 +31,7 @@
     
     <item>
       <title><![CDATA[New configuration]]></title>
-      <link>http://localhost:8585/post/new-configuration.html</link>
+      <link>https://www.biodiversity.cloud/blog/post/new-configuration.html</link>
       <guid>new-configuration</guid>
       <pubDate>2016-12-30</pubDate>
       <description><![CDATA[<p>One main improvement of latest update is the review of the whole configuration of the RRAPP.</p>
